@@ -85,7 +85,7 @@ if saveTextFile == 1 % saving text files
     disp('Saving raw data');
     if caso == 1
         arquivo = fopen('SimpleMass_RawData.csv','w');
-        fprintf(arquivo, 'time,f,e,pload,pmec,pinert,prim,psec');
+        fprintf(arquivo, 'time,f,e,pload,pmec,pinert,pprim,psec\n');
     %elseif caso == 2 
     %    arquivo = fopen('SimpleMass_One_Raw.txt','w');
     %elseif caso == 3 
