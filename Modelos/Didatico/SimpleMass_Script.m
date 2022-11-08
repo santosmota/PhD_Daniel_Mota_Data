@@ -9,8 +9,8 @@ clearvars;
 % caso = -1; % no storage of files, no simulatation
 % caso = 0; % no storage of files, still simulates
 % caso = 1; % 3MW step, store text file
-caso = 2; % 5MW step, store text file
-% caso = 3; % WF 12MW out, store text file
+% caso = 2; % 5MW step, store text file
+caso = 3; % WF 12MW out, store text file
 
 %%
 %saveTextFile = 0; %DO NOT save files

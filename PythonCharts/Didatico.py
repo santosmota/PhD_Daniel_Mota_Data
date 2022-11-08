@@ -8,10 +8,16 @@ import pandas as pd
 
 #######################
 filename = '..\Modelos\Didatico\RawData_Case2.csv'
-df = pd.read_csv(filepath_or_buffer=filename)
+df2 = pd.read_csv(filepath_or_buffer=filename)
+
+#######################
+filename = '..\Modelos\Didatico\RawData_Case3.csv'
+df3 = pd.read_csv(filepath_or_buffer=filename)
+
+
 
 Tstart = 0
-Tend = 200
+Tend = 120
 Tstep = 10
 
 Ts = 0.005
@@ -20,7 +26,7 @@ time_to_samples = 1.0 / Ts
 gfx = ((1.0 - 0.5) / 4.0) / 2
 gfy = ((1.0 - 0.45) / 3.0) / 2
 
-needlecolor = 'black'
+needlecolor = 'purple'
 
 dict_slider_marks = {}
 for t in range(Tstart, Tend, Tstep):
@@ -147,10 +153,12 @@ app.layout = html.Div(children=[
     # html.H1(children='Power Reserves', style={'textAlign': 'center'}), # , 'color': '#7FDBFF'
 
     html.Label('Select case:'),
-    dcc.Dropdown(['Case 1', 'Case 2', 'Case 3'], 'Case 1'),
+    dcc.Dropdown(['Case 1', 'Case 2', 'Case 3'], 'Case 2', id='case'),
+    # html.Div(id='dd-output-container'),
 
     html.Div([dcc.Graph(figure=fig, id="frequency")]),
 
+    html.Label('Time (s):'),
     html.Div([dcc.Slider(id='time_slider',
                          min=Tstart,
                          max=Tend,
@@ -166,23 +174,43 @@ app.layout = html.Div(children=[
 
 @app.callback(
     Output('frequency', 'figure'),
-    Input('time_slider', 'value')
+    #Output('dd-output-container', 'children'),
+    Input('time_slider', 'value'),
+    Input('case', 'value')
 )
-def update_gauge(slider_value):
+def update_gauge(slider_value, case_value):
 
     idx = int(slider_value * time_to_samples)
 
     val = {}
     aux = True
-    if aux:
-        val['Pgov'] = df['Pgov'].iloc[idx]
-        val['F'] = df['F'].iloc[idx]
-        val['Pinert'] = df['Pinert'].iloc[idx]
-        val['Pbat'] = df['Pbat'].iloc[idx]
-        val['Pload'] = df['Pload'].iloc[idx]
-        val['Pfc'] = df['Pfc'].iloc[idx]
-        val['Pwf'] = df['Pwf'].iloc[idx]
-        val['SOC'] = df['SOC'].iloc[idx]
+    if case_value == 'Case 2':
+        val['Pgov'] = df2['Pgov'].iloc[idx]
+        val['F'] = df2['F'].iloc[idx]
+        val['Pinert'] = df2['Pinert'].iloc[idx]
+        val['Pbat'] = df2['Pbat'].iloc[idx]
+        val['Pload'] = df2['Pload'].iloc[idx]
+        val['Pfc'] = df2['Pfc'].iloc[idx]
+        val['Pwf'] = df2['Pwf'].iloc[idx]
+        val['SOC'] = df2['SOC'].iloc[idx]
+    elif case_value == 'Case 3':
+        val['Pgov'] = df3['Pgov'].iloc[idx]
+        val['F'] = df3['F'].iloc[idx]
+        val['Pinert'] = df3['Pinert'].iloc[idx]
+        val['Pbat'] = df3['Pbat'].iloc[idx]
+        val['Pload'] = df3['Pload'].iloc[idx]
+        val['Pfc'] = df3['Pfc'].iloc[idx]
+        val['Pwf'] = df3['Pwf'].iloc[idx]
+        val['SOC'] = df3['SOC'].iloc[idx]
+    else:
+        val['Pgov'] = df2['Pgov'].iloc[idx]
+        val['F'] = df2['F'].iloc[idx]
+        val['Pinert'] = df2['Pinert'].iloc[idx]
+        val['Pbat'] = df2['Pbat'].iloc[idx]
+        val['Pload'] = df2['Pload'].iloc[idx]
+        val['Pfc'] = df2['Pfc'].iloc[idx]
+        val['Pwf'] = df2['Pwf'].iloc[idx]
+        val['SOC'] = df2['SOC'].iloc[idx]
 
     gt = {'threshold': {'value': val['Pgov']}}
     fr = {'threshold': {'value': val['F']}}
@@ -191,12 +219,16 @@ def update_gauge(slider_value):
     fc = {'threshold': {'value': val['Pfc']}}
     ld = {'threshold': {'value': val['Pload']}}
     soc = {'threshold': {'value': val['SOC']}}
+    wf = {'threshold': {'value': val['Pwf']}}
 
     fig.update_traces(value=val['Pgov'], gauge=gt, selector=dict(name="governor"))
     fig.update_traces(value=val['F'], gauge=fr, selector=dict(name="frequency"))
     fig.update_traces(value=val['Pbat'], gauge=bt, selector=dict(name="battery"))
     fig.update_traces(value=val['Pload'], gauge=ld, selector=dict(name="load"))
     fig.update_traces(value=val['Pinert'], gauge=inert, selector=dict(name="inertia"))
+    fig.update_traces(value=val['Pfc'], gauge=fc, selector=dict(name="fuelcell"))
+    fig.update_traces(value=val['Pwf'], gauge=wf, selector=dict(name="wind"))
+    fig.update_traces(value=val['SOC'], gauge=soc, selector=dict(name="soc"))
 
     return fig
 
