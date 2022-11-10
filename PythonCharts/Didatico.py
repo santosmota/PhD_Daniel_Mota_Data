@@ -1,10 +1,16 @@
 import plotly.graph_objects as go
 import dash
-from dash import dcc
-from dash import html
-from dash.dependencies import Input, Output
+from dash import Dash, dcc, html, ctx, Input, Output
+import dash_daq as daq
+# from dash import html
+#from dash.dependencies import Input, Output
 
 import pandas as pd
+
+
+#######################
+filename = '..\Modelos\Didatico\RawData_Case1.csv'
+df1 = pd.read_csv(filepath_or_buffer=filename)
 
 #######################
 filename = '..\Modelos\Didatico\RawData_Case2.csv'
@@ -32,8 +38,8 @@ dict_slider_marks = {}
 for t in range(Tstart, Tend, Tstep):
     dict_slider_marks[int(t)] = str(t)
 
-
 fig = go.Figure()
+
 
 fig.add_trace(go.Indicator(
     name="governor",
@@ -47,6 +53,20 @@ fig.add_trace(go.Indicator(
            'bar': {'color': 'white'},
            'threshold': {'line': {'color': needlecolor, 'width': 4},
                          'thickness': 0.75, 'value': 32}}))
+
+# fig.add_trace(daq.Gauge(
+#     id="governor",
+#     # domain={'x': [1 / 8 - gfx, 1 / 8 + gfx], 'y': [0.5 - gfy, 0.5 + gfy]},
+#     value=32,
+#     # number={'suffix': 'MW'},
+#     #mode="gauge+number+delta",
+#     #delta={'reference': 32},
+#     # title={'text': "Gas Turbines"},
+#     # gauge={'axis': {'range': [0, 60]},
+#     #        'bar': {'color': 'white'},
+#     #        'threshold': {'line': {'color': needlecolor, 'width': 4},
+#     #                      'thickness': 0.75, 'value': 32}}))
+# ))
 
 fig.add_trace(go.Indicator(
     name="frequency",
@@ -146,6 +166,15 @@ fig.add_trace(go.Indicator(
 
 fig.update_layout(dict1={'height': 600})
 
+# fig.update_layout(
+#     font_family="Courier New",
+#     font_color="blue",
+#     title_font_family="Times New Roman",
+#     title_font_color="red",
+#     legend_title_font_color="green"
+# )
+# fig.update_xaxes(title_font_family="Arial")
+
 app = dash.Dash(__name__)
 
 app.layout = html.Div(children=[
@@ -159,6 +188,8 @@ app.layout = html.Div(children=[
     html.Div([dcc.Graph(figure=fig, id="frequency")]),
 
     html.Label('Time (s):'),
+    html.Button('<', id='but_down', n_clicks=0),
+    html.Button('>', id='but_up', n_clicks=0),
     html.Div([dcc.Slider(id='time_slider',
                          min=Tstart,
                          max=Tend,
@@ -174,16 +205,15 @@ app.layout = html.Div(children=[
 
 @app.callback(
     Output('frequency', 'figure'),
-    #Output('dd-output-container', 'children'),
     Input('time_slider', 'value'),
-    Input('case', 'value')
+    Input('case', 'value'),
 )
 def update_gauge(slider_value, case_value):
 
     idx = int(slider_value * time_to_samples)
 
     val = {}
-    aux = True
+    # aux = True
     if case_value == 'Case 2':
         val['Pgov'] = df2['Pgov'].iloc[idx]
         val['F'] = df2['F'].iloc[idx]
@@ -233,8 +263,35 @@ def update_gauge(slider_value, case_value):
     return fig
 
 
+################################
+# SLIDER UP / DOWN
+@app.callback(
+    Output('time_slider', 'value'),
+    Input('time_slider', 'value'),
+    # Input('but_up', 'n_clicks_timestamp'),
+    # Input('but_down', 'n_clicks_timestamp')
+    Input('but_up', 'n_clicks'),
+    Input('but_down', 'n_clicks')
+)
+def up_slider(value, up, down):
+    if ctx.triggered_id == 'but_up':
+        aux = value + 1
+        if aux < Tend - 1:
+            return aux
+
+    if ctx.triggered_id == 'but_down':
+        aux = value - 1
+        if aux >= 0:
+            return aux
+
+    return value
+
+#################################
+# MAIN
 if __name__ == "__main__":
     app.run_server(debug=True)
+
+
 
 
 
