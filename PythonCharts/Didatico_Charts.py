@@ -98,7 +98,7 @@ def plot_charts(figure_type='', caso=1):
     ##########################################################################
     # axis names and legends
     ##########################################################################
-    axes[3].set_xlabel(r'Time (\si{\milli \second})')
+    axes[3].set_xlabel(r'Time (\si{\second})')
 
     axes[0].set_ylabel(r'Load (\si{\mega \watt})')
     axes[1].set_ylabel(r'Frequency (\si{\hertz})')
@@ -131,9 +131,9 @@ def main():
     print("#####################")
     print("Function name: ", main.__name__)
 
-    # figure_type = '.png'
+    figure_type = '.png'
     # figure_type = '.eps'
-    figure_type = '.pdf'
+    # figure_type = '.pdf'
 
     plot_charts(figure_type=figure_type, caso=3)
 
