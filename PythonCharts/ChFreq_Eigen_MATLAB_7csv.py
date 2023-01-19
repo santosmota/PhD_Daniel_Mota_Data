@@ -128,12 +128,14 @@ def plot_root_locus_damping_lines_for_matlab(eigen_real, eigen_imag, axis, nzeta
                       linewidth=linewidth, marker=marker, markersize=markersize)
 
             if add_pos_damping_numbers and y[-1] > 0.00001:
-                if i == 5:
-                    auxind = n_segments - 75  # 0.77
+                if i == 4:
+                    auxind = n_segments - 77  # 0.64
+                elif i == 5:
+                    auxind = n_segments - 76  # 0.77
                 elif i == 6:
-                    auxind = n_segments - 72  # 0.87
+                    auxind = n_segments - 75  # 0.87
                 elif i == 7:
-                    auxind = n_segments - 70  # 0.94
+                    auxind = n_segments - 73  # 0.94
                 elif i == 8:
                     auxind = n_segments - 70  # 0.98
                 else:
@@ -155,7 +157,7 @@ def plot_eigen_from_7_csvs(simcount_total=7,
     print("#####################")
     print("Function name: ", plot_eigen_from_7_csvs.__name__)
 
-    figeigename = csvfolder + '/ChFreq_FigEigenMatlab.pdf'
+    figeigename = csvfolder + '/ChFreq_EigenMatlab.pdf'
 
     ##########################################################################
     # figure
