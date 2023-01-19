@@ -123,7 +123,7 @@ def plot_charts(figure_type='.pdf'):
     ##########################################################################
     # axis names
     ##########################################################################
-    axes[2].set_xlabel(r'Time (\si{\milli \second})')
+    axes[2].set_xlabel(r'Time (\si{\second})')
 
     axes[0].set_ylabel(r'Total power (\si{pu})')
     axes[1].set_ylabel(r'Frequency (\si{pu})')

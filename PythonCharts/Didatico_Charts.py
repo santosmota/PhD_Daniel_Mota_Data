@@ -135,7 +135,7 @@ def main():
     # figure_type = '.eps'
     # figure_type = '.pdf'
 
-    plot_charts(figure_type=figure_type, caso=3)
+    plot_charts(figure_type=figure_type, caso=1)
 
 if __name__ == '__main__':
     main()
