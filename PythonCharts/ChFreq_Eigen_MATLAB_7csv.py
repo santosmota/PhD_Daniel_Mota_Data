@@ -183,22 +183,22 @@ def plot_eigen_from_7_csvs(simcount_total=7,
     estilos = []
     for simcount in range(0, simcount_total, 1):
         if simcount == 0:
-            cores.append('red')
+            cores.append(pe.cor_dalt['red'])  # cores.append('red')
             legendas.append('GTs only')
             marker.append('x')
             estilos.append('-')  # , ':', '-.']
         elif simcount == 1:
-            cores.append('gray')
+            cores.append(pe.cor_dalt['gray']) # cores.append('gray')
             legendas.append('GTs+ESS')
             marker.append('+')
             estilos.append(':')
         elif simcount == simcount_total - 1:
-            cores.append('blue')
+            cores.append(pe.cor_dalt['blue'])  # cores.append('blue')
             legendas.append('ESS only')
             marker.append('*')
             estilos.append('-.')
         else:
-            cores.append('gray')
+            cores.append(pe.cor_dalt['gray'])  # cores.append('gray')
             legendas.append('')
             marker.append('+')
             estilos.append(':')

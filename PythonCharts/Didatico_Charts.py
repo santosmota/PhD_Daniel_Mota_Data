@@ -131,9 +131,9 @@ def main():
     print("#####################")
     print("Function name: ", main.__name__)
 
-    figure_type = '.png'
+    # figure_type = '.png'
     # figure_type = '.eps'
-    # figure_type = '.pdf'
+    figure_type = '.pdf'
 
     plot_charts(figure_type=figure_type, caso=1)
 
