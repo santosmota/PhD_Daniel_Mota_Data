@@ -39,7 +39,7 @@ def plot_fmeas_from_csvs(simcount_total=7,
     print("#####################")
     print("Function name: ", plot_fmeas_from_csvs.__name__)
 
-    figstepsname = csvfolder + '/ChFreq_Steps_1_2MW_Matlab.pdf'
+    figstepsname = csvfolder + '/ChFreq_Steps_6MW_Matlab.pdf'
 
     ##########################################################################
     # figure
@@ -92,7 +92,7 @@ def plot_fmeas_from_csvs(simcount_total=7,
     ##########################################################################
     for simcount in range(0, simcount_total, 1):
 
-        csvname = csvfolder + "/matstep_1_2MW_run_" + str(simcount+1) + '.csv'
+        csvname = csvfolder + "/matstep_6MW_run_" + str(simcount+1) + '.csv'
 
         df_td = pd.read_csv(csvname,
                             names=['time', 'F', 'step', 'PfcrGT1', 'PfcrGT2', 'PfcrESS'],
@@ -134,43 +134,6 @@ def plot_fmeas_from_csvs(simcount_total=7,
                           color=cores[simcount],
                           label=legendas[simcount])
 
-    ##########################################################################
-    # chart identification - legend - abcdefghi
-    ##########################################################################
-    # https://matplotlib.org/stable/gallery/color/named_colors.html
-    # colors lightgray gray aliceblue whitesmoke
-    corlegenda = 'whitesmoke'
-    #
-    axs_steps[0].annotate(r'a', xy=(0.05, 0.25), xycoords='axes fraction',
-                          bbox=dict(boxstyle='circle', fc=corlegenda))
-
-    axs_steps[1].annotate(r'b', xy=(0.05, 0.25), xycoords='axes fraction',
-                         bbox=dict(boxstyle='circle', fc=corlegenda))
-
-    axs_steps[2].annotate(r'c', xy=(0.05, 0.25), xycoords='axes fraction',
-                         bbox=dict(boxstyle='circle', fc=corlegenda))
-
-    axs_steps[3].annotate(r'd', xy=(0.05, 0.25), xycoords='axes fraction',
-                         bbox=dict(boxstyle='circle', fc=corlegenda))
-
-    ##########################################################################
-    # chart annotations
-    ##########################################################################
-    axs_steps[2].annotate(r'GTs:0MW/Hz ESS:12MW/Hz', xy=(3.5, 44), xycoords='data', color=pe.cor_dalt['blue'])
-    axs_steps[2].annotate(r'GTs:2MW/Hz ESS:10MW/Hz', xy=(3.5, 44.2), xycoords='data', color=pe.cor_dalt['gray'])
-    axs_steps[2].annotate(r'GTs:4MW/Hz ESS:8MW/Hz', xy=(3.5, 44.4), xycoords='data', color=pe.cor_dalt['gray'])
-    axs_steps[2].annotate(r'GTs:6MW/Hz ESS:6MW/Hz', xy=(3.5, 44.6), xycoords='data', color=pe.cor_dalt['gray'])
-    axs_steps[2].annotate(r'GTs:8MW/Hz ESS:4MW/Hz', xy=(3.5, 44.8), xycoords='data', color=pe.cor_dalt['gray'])
-    axs_steps[2].annotate(r'GTs:10MW/Hz ESS:2MW/Hz', xy=(3.5, 45), xycoords='data', color=pe.cor_dalt['gray'])
-    axs_steps[2].annotate(r'GTs:12MW/Hz', xy=(4.5, 45.2), xycoords='data', color=pe.cor_dalt['red'])
-
-    axs_steps[3].annotate(r'ESS:0MW/Hz GTs:12MW/Hz', xy=(3.5, 0), xycoords='data', color=pe.cor_dalt['red'])
-    axs_steps[3].annotate(r'ESS:2MW/Hz GTs:10MW/Hz', xy=(3.5, 0.2), xycoords='data', color=pe.cor_dalt['gray'])
-    axs_steps[3].annotate(r'ESS:4MW/Hz GTs:8MW/Hz', xy=(3.5, 0.4), xycoords='data', color=pe.cor_dalt['gray'])
-    axs_steps[3].annotate(r'ESS:6MW/Hz GTs:6MW/Hz', xy=(3.5, 0.6), xycoords='data', color=pe.cor_dalt['gray'])
-    axs_steps[3].annotate(r'ESS:8MW/Hz GTs:4MW/Hz', xy=(3.5, 0.8), xycoords='data', color=pe.cor_dalt['gray'])
-    axs_steps[3].annotate(r'ESS:10MW/Hz GTs:2MW/Hz', xy=(3.5, 1), xycoords='data', color=pe.cor_dalt['gray'])
-    axs_steps[3].annotate(r'ESS:12MW/Hz', xy=(4.5, 1.2), xycoords='data', color=pe.cor_dalt['blue'])
 
     ##########################################################################
     # axis names
@@ -183,19 +146,19 @@ def plot_fmeas_from_csvs(simcount_total=7,
     axs_steps[3].set_ylabel(r'ESS (MW)')
 
     axs_steps[3].set_xticks(np.arange(0, 10, 1))
-    axs_steps[3].set_xlim([0, 6])
+    axs_steps[3].set_xlim([0, 10])
 
-    axs_steps[0].set_yticks(np.arange(42, 50, 0.4))
-    axs_steps[0].set_ylim([43.9, 45.4])
+    axs_steps[0].set_yticks(np.arange(40, 56, 4))
+    axs_steps[0].set_ylim([43.9, 56])
 
-    axs_steps[1].set_yticks(np.arange(49.85, 50.1, 0.05))
-    axs_steps[1].set_ylim([49.87, 50.01])
+    axs_steps[1].set_yticks(np.arange(45, 52, 1))
+    axs_steps[1].set_ylim([45, 50.1])
 
-    axs_steps[2].set_yticks(np.arange(42, 50, 0.4))
-    axs_steps[2].set_ylim([43.9, 45.4])
+    axs_steps[2].set_yticks(np.arange(42, 55, 1))
+    axs_steps[2].set_ylim([43.9, 51])
 
-    axs_steps[3].set_yticks(np.arange(0, 1.6, 0.4))
-    axs_steps[3].set_ylim([-0.1, 1.4])
+    axs_steps[3].set_yticks(np.arange(0, 6, 0.5))
+    axs_steps[3].set_ylim([-0.1, 3.1])
 
     axs_steps[0].legend(loc='best', frameon=False)
     axs_steps[1].legend(loc='best', frameon=False)

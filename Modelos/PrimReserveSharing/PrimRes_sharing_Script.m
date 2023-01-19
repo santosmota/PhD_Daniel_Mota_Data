@@ -13,8 +13,8 @@ Kess = [0  2  4  6  8 10 12];   % MW/Hz
 
 Pessmax = 3;
 
-KGT =  Kgt(4);
-KESS = Kess(4);
+KGT =  Kgt(7);
+KESS = Kess(7);
 
 
 StepMW = 6;
