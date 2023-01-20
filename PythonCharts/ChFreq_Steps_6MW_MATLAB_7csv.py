@@ -133,7 +133,52 @@ def plot_fmeas_from_csvs(simcount_total=7,
                           linewidth=grossuras,
                           color=cores[simcount],
                           label=legendas[simcount])
+    ##########################################################################
+    # chart identification - legend - abcdefghi
+    ##########################################################################
+    # https://matplotlib.org/stable/gallery/color/named_colors.html
+    # colors lightgray gray aliceblue whitesmoke
+    corlegenda = 'whitesmoke'
+    #
+    axs_steps[0].annotate(r'a', xy=(0.05, 0.75), xycoords='axes fraction',
+                          bbox=dict(boxstyle='circle', fc=corlegenda))
 
+    axs_steps[1].annotate(r'b', xy=(0.05, 0.75), xycoords='axes fraction',
+                          bbox=dict(boxstyle='circle', fc=corlegenda))
+
+    axs_steps[2].annotate(r'c', xy=(0.05, 0.75), xycoords='axes fraction',
+                          bbox=dict(boxstyle='circle', fc=corlegenda))
+
+    axs_steps[3].annotate(r'd', xy=(0.05, 0.75), xycoords='axes fraction',
+                          bbox=dict(boxstyle='circle', fc=corlegenda))
+
+    ##########################################################################
+    # chart annotations
+    ##########################################################################
+    axs_steps[1].annotate(r'GTs:0MW/Hz ESS:12MW/Hz', xy=(6, 48.2), xycoords='data', color=pe.cor_dalt['blue'])
+    axs_steps[1].annotate(r'GTs:2MW/Hz ESS:10MW/Hz', xy=(6, 48.7), xycoords='data', color=pe.cor_dalt['gray'])
+    axs_steps[1].annotate(r'GTs:4MW/Hz ESS:8MW/Hz', xy=(6, 49.2), xycoords='data', color=pe.cor_dalt['gray'])
+
+    axs_steps[1].annotate(r'Unstable',
+                          xy=(8, 47.5), xycoords='data',
+                          xytext=(8.75, 47.8), textcoords='data',
+                          ha='left',
+                          color=pe.cor_dalt['blue'],
+                          arrowprops=dict(arrowstyle="->", connectionstyle="arc3",color=pe.cor_dalt['blue']))
+
+    axs_steps[2].annotate(r'GTs:0MW/Hz ESS:12MW/Hz', xy=(3, 44), xycoords='data', color=pe.cor_dalt['blue'])
+    axs_steps[2].annotate(r'GTs:2MW/Hz ESS:10MW/Hz', xy=(3, 45), xycoords='data', color=pe.cor_dalt['gray'])
+    axs_steps[2].annotate(r'GTs:4MW/Hz ESS:8MW/Hz', xy=(3, 46), xycoords='data', color=pe.cor_dalt['gray'])
+    axs_steps[2].annotate(r'GTs:6MW/Hz ESS:6MW/Hz', xy=(3, 47), xycoords='data', color=pe.cor_dalt['gray'])
+    axs_steps[2].annotate(r'GTs:8MW/Hz ESS:4MW/Hz', xy=(4, 48), xycoords='data', color=pe.cor_dalt['gray'])
+    axs_steps[2].annotate(r'GTs:10MW/Hz ESS:2MW/Hz', xy=(5, 49), xycoords='data', color=pe.cor_dalt['gray'])
+    axs_steps[2].annotate(r'GTs:12MW/Hz ESS:0MW/Hz', xy=(6, 50), xycoords='data', color=pe.cor_dalt['red'])
+
+    axs_steps[3].annotate(r'ESS:0MW/Hz GTs:12MW/Hz', xy=(5, 0), xycoords='data', color=pe.cor_dalt['red'])
+    axs_steps[3].annotate(r'ESS:2MW/Hz GTs:10MW/Hz', xy=(5, 1), xycoords='data', color=pe.cor_dalt['gray'])
+    axs_steps[3].annotate(r'ESS:4MW/Hz GTs:8MW/Hz', xy=(5, 2), xycoords='data', color=pe.cor_dalt['gray'])
+    axs_steps[3].annotate(r'ESS:6MW/Hz GTs:6MW/Hz', xy=(2, 2.5), xycoords='data', color=pe.cor_dalt['gray'])
+    axs_steps[3].annotate(r'ESS saturates for gains $\ge$ 6MW/Hz', xy=(1.5, 3.25), xycoords='data', color='black')
 
     ##########################################################################
     # axis names
@@ -149,16 +194,16 @@ def plot_fmeas_from_csvs(simcount_total=7,
     axs_steps[3].set_xlim([0, 10])
 
     axs_steps[0].set_yticks(np.arange(40, 56, 4))
-    axs_steps[0].set_ylim([43.9, 56])
+    axs_steps[0].set_ylim([39.8, 52])
 
     axs_steps[1].set_yticks(np.arange(45, 52, 1))
-    axs_steps[1].set_ylim([45, 50.1])
+    axs_steps[1].set_ylim([47, 50.1])
 
     axs_steps[2].set_yticks(np.arange(42, 55, 1))
     axs_steps[2].set_ylim([43.9, 51])
 
-    axs_steps[3].set_yticks(np.arange(0, 6, 0.5))
-    axs_steps[3].set_ylim([-0.1, 3.1])
+    axs_steps[3].set_yticks(np.arange(0, 6, 1))
+    axs_steps[3].set_ylim([-0.1, 4])
 
     axs_steps[0].legend(loc='best', frameon=False)
     axs_steps[1].legend(loc='best', frameon=False)
