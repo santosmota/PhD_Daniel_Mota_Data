@@ -53,22 +53,22 @@ def plot_vpcc_fmeas_from_csvs(simcount_total=7,
     estilos = []
     for simcount in range(0, simcount_total, 1):
         if simcount == 0:
-            cores.append('red')
+            cores.append(pe.cor_dalt['red'])
             legendas.append('GTs')
             marker.append('x')
             estilos.append('-')  # , ':', '-.']
         elif simcount == 1:
-            cores.append('gray')
+            cores.append(pe.cor_dalt['gray'])
             legendas.append('GTs+BTC+FLX')
             marker.append('+')
             estilos.append(':')
         elif simcount == simcount_total - 1:
-            cores.append('blue')
+            cores.append(pe.cor_dalt['blue'])
             legendas.append('BTC+FLX')
             marker.append('*')
             estilos.append('-.')
         else:
-            cores.append('gray')
+            cores.append(pe.cor_dalt['gray'])
             legendas.append('')
             marker.append('+')
             estilos.append(':')
