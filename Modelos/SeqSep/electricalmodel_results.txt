@@ -1,0 +1,157 @@
+>> Electrical_model_settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WIND TURBINES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GRID CONVERTER - LCL design
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Main reactance - converter side
+    L1 = 5.0704e-05 H
+    l1 = 0.16729 pu
+    R1 = 0.0009522 Ohm
+    r1 = 0.01 pu
+Line side reactance (transformer) seen from LV towards HV
+    L2 = 2.4248e-05 H
+    l2 = 0.08 pu
+    R2 = 0.0004761 Ohm
+    r2 = 0.005 pu
+Shunt branch of the filter
+    Cf = 0.0016714 F
+    Rf = 0.033022 Ohm
+    fres = 961.1887 Hz
+    OK! Resonance frequency: 10*Fn < fres < 0.5*fsw
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GRID CONVERTER - PI tuning - Single Controller
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Current controller PI transfer function = kp (1 + 1/(sTi))
+    Sum of small time constants TsumI = 0.00043116 s
+    Ti = 0.0533 s
+    kp = 0.55334 pu/pu
+    Current feedback from LV side of trafo!
+DC voltage controller PI transfer function = kpdc (1 + 1/(s Tidc))
+    Sum of small time constants TsumU = 0.00076233 s
+    Ti = 0.0054913 s
+    kp = 4.7347 pu/pu
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GRID CONVERTER - PI tuning - Dual Controller
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Current controller PI transfer function = kp (1 + 1/(sTi))
+    Sum of small time constants TsumI = 0.0036143 s
+    Ti = 0.0533 s
+    kp = 0.072661 pu/pu
+    Current feedback from LV side of trafo!
+DC voltage controller PI transfer function = kpdc (1 + 1/(s Tidc))
+    Sum of small time constants TsumU = 0.0039454 s
+    Ti = 0.027009 s
+    kp = 0.96264 pu/pu
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FLEX LOAD
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GRID CONVERTER - LCL design
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Main reactance - converter side
+    L1 = 6.0045e-05 H
+    l1 = 0.33458 pu
+    R1 = 0.0005638 Ohm
+    r1 = 0.01 pu
+Line side reactance (transformer) seen from LV towards HV
+    L2 = 1.0768e-05 H
+    l2 = 0.06 pu
+    R2 = 0.0002819 Ohm
+    r2 = 0.005 pu
+Shunt branch of the filter
+    Cf = 0.0028229 F
+    Rf = 0.018957 Ohm
+    fres = 991.3502 Hz
+    OK! Resonance frequency: 10*Fn < fres < 0.5*fsw
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GRID CONVERTER - PI tuning - Dual Controller
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Current controller PI transfer function = kp (1 + 1/(sTi))
+    Sum of small time constants TsumI = 0.0037042 s
+    Ti = 0.10655 s
+    kp = 0.14184 pu/pu
+    Current feedback from LV side of trafo!
+DC voltage controller PI transfer function = kpdc (1 + 1/(s Tidc))
+    Sum of small time constants TsumU = 0.0040253 s
+    Ti = 0.027549 s
+    kp = 0.94378 pu/pu
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GRID CONVERTER - PI tuning - Single Controller
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Current controller PI transfer function = kp (1 + 1/(sTi))
+    Sum of small time constants TsumI = 0.00052109 s
+    Ti = 0.10655 s
+    kp = 0.93243 pu/pu
+    Current feedback from LV side of trafo!
+DC voltage controller PI transfer function = kpdc (1 + 1/(s Tidc))
+    Sum of small time constants TsumU = 0.00084217 s
+    Ti = 0.0060311 s
+    kp = 4.311 pu/pu
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ESS - Grid converter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GRID CONVERTER - LCL design
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Main reactance - converter side
+    L1 = 2.5352e-05 H
+    l1 = 0.16729 pu
+    R1 = 0.0009522 Ohm
+    r1 = 0.02 pu
+Line side reactance (transformer) seen from LV towards HV
+    L2 = 1.6302e-05 H
+    l2 = 0.10757 pu
+    R2 = 0.0025489 Ohm
+    r2 = 0.053538 pu
+Shunt branch of the filter
+    Cf = 0.0033429 F
+    Rf = 0.01816 Ohm
+    fres = 873.8952 Hz
+    OK! Resonance frequency: 10*Fn < fres < 0.5*fsw
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GRID CONVERTER - PI tuning - Single Controller
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Current controller PI transfer function = kp (1 + 1/(sTi))
+    Sum of small time constants TsumI = 0.00029674 s
+    Ti = 0.02716 s
+    kp = 0.78184 pu/pu
+    Current feedback from LV side of trafo!
+DC voltage controller PI transfer function = kpdc (1 + 1/(s Tidc))
+    Sum of small time constants TsumU = 0.00049349 s
+    Ti = 0.003674 s
+    kp = 7.0768 pu/pu
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GRID CONVERTER - PI tuning - Dual Controller
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Current controller PI transfer function = kp (1 + 1/(sTi))
+    Sum of small time constants TsumI = 0.0034798 s
+    Ti = 0.02716 s
+    kp = 0.076801 pu/pu
+    Current feedback from LV side of trafo!
+DC voltage controller PI transfer function = kpdc (1 + 1/(s Tidc))
+    Sum of small time constants TsumU = 0.0036766 s
+    Ti = 0.025192 s
+    kp = 1.0321 pu/pu
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ESS - Fuel cell converter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BATTERY CONVERTER - L design
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Inductance - battery side
+    L = 0.00018 H
+    R = 0.0018 Ohm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ESS - Electrolyzer converter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BATTERY CONVERTER - L design
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Inductance - battery side
+    L = 0.00012 H
+    R = 0.0012 Ohm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ESS - Fuel cell converter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BATTERY CONVERTER - L design
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Inductance - battery side
+    L = 0.00046753 H
+    R = 0.0046753 Ohm
