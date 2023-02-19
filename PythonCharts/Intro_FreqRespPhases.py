@@ -1,7 +1,8 @@
 from tkinter import Tk     # from tkinter import Tk for Python 3.x
 from tkinter.filedialog import askopenfilename
 
-import numpy as np
+
+def plot_charts(figure_tyimport numpy as np
 import pandas as pd
 import scipy.io as sio
 import plot_extra as pe
@@ -26,8 +27,7 @@ plt.rcParams['text.usetex'] = 'True'
 plt.rcParams['text.latex.preamble'] = r'\usepackage{amsmath} \usepackage{crimson} \usepackage{siunitx}'
 # from matplotlib.ticker import FormatStrFormatter
 # from matplotlib.offsetbox import AnchoredText
-
-def plot_charts(figure_type='.pdf'):
+pe='.pdf'):
     print("#####################")
     print("Function name: ", plot_charts.__name__)
 

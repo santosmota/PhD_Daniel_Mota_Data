@@ -49,6 +49,7 @@ octave-workspace
 # virtual environment
 PythonCharts/venv/
 PythonCharts/.idea/
+PythonCharts/.vs/
 
 
 # User-specific stuff
