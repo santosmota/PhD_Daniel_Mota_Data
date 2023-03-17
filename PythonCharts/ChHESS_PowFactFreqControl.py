@@ -47,7 +47,7 @@ def plotchart ():
     #raw_04_file_name = '20211201_Case04_PCC_DroopInt_Deriv_NoFFwrd'
     #raw_04_full_file_path = CSVs_path + raw_04_file_name + '.csv'
 
-    save_file_name = 'ChHESS_PowFacFreq'
+    save_file_name = 'HESSPowFacFreq'
     save_full_file_path = picture_folder + save_file_name + '.pdf'
 
     ###############################################################
@@ -168,34 +168,34 @@ def plotchart ():
                     dados_01[start_time_index:end_time_index, RL01_11kV_p_MW] +
                     dados_01[start_time_index:end_time_index, RL02_11kV_p_MW] +
                     dados_01[start_time_index:end_time_index, LV_Load_11kV_p_MW],
-                    color='green', linewidth=linewidth, linestyle='-', label=r'(1) no ESS support')
+                    color='green', linewidth=linewidth, linestyle='-', label=r'Case 1: no ESS support')
 
     axs[0].plot(dados_02[start_time_index:end_time_index, time],
                     dados_02[start_time_index:end_time_index, RL01_11kV_p_MW] +
                     dados_02[start_time_index:end_time_index, RL02_11kV_p_MW] +
                     dados_02[start_time_index:end_time_index, LV_Load_11kV_p_MW],
-                    color=pe.cor_dalt['red'], linewidth=linewidth, linestyle='-', label=r'(2) ESS Primary')
+                    color=pe.cor_dalt['red'], linewidth=linewidth, linestyle='-', label=r'Case 2: ESS Primary')
 
     axs[0].plot(dados_03[start_time_index:end_time_index, time],
                    dados_03[start_time_index:end_time_index, RL01_11kV_p_MW] +
                    dados_03[start_time_index:end_time_index, RL02_11kV_p_MW] +
                    dados_03[start_time_index:end_time_index, LV_Load_11kV_p_MW],
-                   color=pe.cor_dalt['blue'], linewidth=linewidth, linestyle='-', label=r'(3) ESS Primary+Inertia')
+                   color=pe.cor_dalt['blue'], linewidth=linewidth, linestyle='-', label=r'Case 3: ESS Primary+Inertia')
 
 
     ##################################################
     # Speed
     ##################################################
     axs[1].plot(dados_01[start_time_index:end_time_index, time],
-             dados_01[start_time_index:end_time_index, GG_01_speed],
+             dados_01[start_time_index:end_time_index, GG_01_speed]*50.0,
              color=pe.cor_dalt['green'], linewidth=linewidth, linestyle='-', label=r'No ESS')
 
     axs[1].plot(dados_02[start_time_index:end_time_index, time],
-             dados_02[start_time_index:end_time_index, GG_01_speed],
+             dados_02[start_time_index:end_time_index, GG_01_speed]*50.0,
              color=pe.cor_dalt['red'], linewidth=linewidth, linestyle='-', label=r'ESS Droop')
 
     axs[1].plot(dados_03[start_time_index:end_time_index, time],
-             dados_03[start_time_index:end_time_index, GG_01_speed],
+             dados_03[start_time_index:end_time_index, GG_01_speed]*50.0,
              color=pe.cor_dalt['blue'], linewidth=linewidth, linestyle='-', label=r'ESS Droop, Deriv.')
 
     ##################################################
@@ -288,7 +288,8 @@ def plotchart ():
 
     axs[0].set_ylabel(r'Electr. load (MW)')
     axs[2].set_ylabel(r'Gen. power (MW)')
-    axs[1].set_ylabel(r'Gen. speed (pu)')
+    #axs[1].set_ylabel(r'Gen. speed (pu)')
+    axs[1].set_ylabel(r'Gen. speed (Hz)')
     axs[4].set_ylabel(r'Wind power (MW)')
     axs[3].set_ylabel(r'ESS power (MW)')
     axs[5].set_ylabel(r'Busbar volt. (kV)')
@@ -312,7 +313,7 @@ def plotchart ():
                       ha='center',
                       bbox=dict(boxstyle='circle', fc=corlegenda))
 
-    axs[1].annotate(r'b', xy=(0.5, 0.998), xycoords='data',
+    axs[1].annotate(r'b', xy=(0.5, 49.9), xycoords='data',  # xy=(0.5, 0.998)
                       va='center',
                       ha='center',
                       bbox=dict(boxstyle='circle', fc=corlegenda))
@@ -343,36 +344,36 @@ def plotchart ():
     # anotation
     ##################################################
     axs[1].annotate(r'with ESS droop',
-                xy=(5.510740, 0.997875), xycoords='data',
-                xytext=(3.5, 0.999), textcoords='data',
+                xy=(5.510740, 49.89375), xycoords='data',  # xy=(5.510740, 0.997875), xycoords='data',
+                xytext=(3.5, 49.95), textcoords='data',  # xytext=(3.5, 0.999), textcoords='data',
                 arrowprops=dict(arrowstyle="->",
                 connectionstyle="arc3"),
                 )
 
     axs[1].annotate(r'ESS inertia',
-                xy=(1.604659, 0.997757), xycoords='data',
-                xytext=(1.5, 0.999), textcoords='data',
+                xy=(1.604659, 49.88785), xycoords='data',  # xy=(1.604659, 0.997757), xycoords='data',
+                xytext=(1.5, 49.95), textcoords='data',  # xytext=(1.5, 0.999), textcoords='data',
                 arrowprops=dict(arrowstyle="->",
                 connectionstyle="arc3"),
                 )
 
-    axs[1].annotate(r'Gen. alone, no ESS.',
-                xy=(2.503226, 0.9972), xycoords='data',
-                xytext=(3, 0.9965), textcoords='data',
+    axs[1].annotate(r'Generators alone, no ESS.',
+                xy=(2.503226, 49.86), xycoords='data',  # xy=(2.503226, 0.9972), xycoords='data',
+                xytext=(3, 49.825), textcoords='data',  # xytext=(3, 0.9965), textcoords='data',
                 arrowprops=dict(arrowstyle="->",
                 connectionstyle="arc3"),
                 )
 
-    axs[2].annotate('Generators take less load\n during the transient,\n due to ESS droop.',
+    axs[2].annotate('Generators take less load during the transient,\n due to ESS droop.',
                 xy=(3.502959, 36.2), xycoords='data',
                 xytext=(2.0, 33.2), textcoords='data',
                 arrowprops=dict(arrowstyle="->",
                 connectionstyle="arc3"),
                 )
 
-    axs[5].annotate('Room for improvement,\n if ESS voltage support\n implemented.',
+    axs[5].annotate('Room for improvement, if ESS voltage \n support implemented.',
                 xy=(1.253061, (0.995662+0.001) * PCC_Volt_Nom_kV), xycoords='data',
-                xytext=(2, 1.0025 * PCC_Volt_Nom_kV), textcoords='data',
+                xytext=(2, 1.0024 * PCC_Volt_Nom_kV), textcoords='data',
                 arrowprops=dict(arrowstyle="->",
                 connectionstyle="arc3"),
                 )
