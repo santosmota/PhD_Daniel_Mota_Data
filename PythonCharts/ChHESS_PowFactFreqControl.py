@@ -1,6 +1,6 @@
 #################################################################
 # Generates the big figure
-#   of the OMAE paper again
+#   of the OMAE paper, but in the format of the Thesis
 #################################################################
 
 import numpy as np
@@ -26,7 +26,6 @@ def plotchart ():
     ###############################################################
     # file path
     ###############################################################
-    # C:\Users\danielmo\OneDrive - SINTEF\Documents\GitHub\PhD_Daniel_Mota_Data
     # '../Modelos/ChHESS/
     picture_folder = '../Modelos/ChHESS/'
 
