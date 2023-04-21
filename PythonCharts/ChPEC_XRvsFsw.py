@@ -21,7 +21,7 @@ def plotchart ():
     Fn = 50.0
     Wn = 2 * np.pi * Fn
 
-    Fsws = np.arange(start=2500.0, stop=5100.0, step=50.0)
+    Fsws = np.arange(start=2500.0, stop=4050.0, step=50.0)
     n_samp = len(Fsws)
 
     Lrs = np.zeros(n_samp)
@@ -98,6 +98,10 @@ def plotchart ():
     # print(ztot_con)
     # print(xoverr)
 
+    three_tau = 3 * xoverr / Wn
+
+    print(three_tau)
+
     ###############################################################
     # size of the figure
     ###############################################################
@@ -143,7 +147,7 @@ def plotchart ():
     # saving and showing
     ##################################################
     print('Saving path and file:')
-    save_full_file_path = '../Modelos/ChPEC/chPEC_XRvsFsw.pdf'
+    save_full_file_path = '../Modelos/ChPEC/PEC_XRvsFsw.pdf'
     print(save_full_file_path)
     plt.savefig(save_full_file_path, format='pdf')
     plt.show()
