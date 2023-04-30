@@ -1,8 +1,7 @@
 from tkinter import Tk     # from tkinter import Tk for Python 3.x
 from tkinter.filedialog import askopenfilename
 
-
-def plot_charts(figure_tyimport numpy as np
+import numpy as np
 import pandas as pd
 import scipy.io as sio
 import plot_extra as pe
@@ -21,13 +20,16 @@ plt.rc('axes', unicode_minus=False)
 #  but is more flexible, since different LaTeX packages (font packages, math packages, etc.) can be used.
 plt.rcParams['text.usetex'] = 'True'
 
+
 #############
 # solves a warning with a previous syntax
 #https://stackoverflow.com/questions/65645194/warning-set-it-to-a-single-string-instead
 plt.rcParams['text.latex.preamble'] = r'\usepackage{amsmath} \usepackage{crimson} \usepackage{siunitx}'
 # from matplotlib.ticker import FormatStrFormatter
 # from matplotlib.offsetbox import AnchoredText
-pe='.pdf'):
+
+
+def plot_charts(figure_type='.pdf'):
     print("#####################")
     print("Function name: ", plot_charts.__name__)
 
