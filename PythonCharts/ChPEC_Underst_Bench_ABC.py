@@ -55,8 +55,8 @@ def plot_chart(figure_type='.pdf'):
     cor_b = pe.cor_dalt['green']
     cor_c = pe.cor_dalt['blue']
 
-    cor_p = pe.cor_dalt['red']
-    cor_q = pe.cor_dalt['blue']
+    cor_p = 'black'  # pe.cor_dalt['red']
+    cor_q = pe.cor_dalt['purple']
 
     ###############################################################
     # VOLTAGE
