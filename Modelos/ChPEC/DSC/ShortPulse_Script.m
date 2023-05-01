@@ -21,7 +21,7 @@ Bench.nomemodelo = 'ShortPulse';
 
 %% %%%%%%%%%%%%%%%%%%%%%%
 % Chose the case, (fazendo casos só por hábito)
-caso = 10;
+caso = 1;
 
 
 %% Cable lenghts
@@ -64,7 +64,7 @@ if Bench.saveTXTfile == 1
     disp('Saving raw data');
     Bench.arquivo = fopen('ShortPulse_Raw.txt','w');
     for cnt = 1:length(Bench.rawdata(:,1))
-        fprintf(Bench.arquivo,'%e, %e, %e, %e, %e, %e, %e, %e, %e, %e\n',Bench.rawdata(cnt, :));
+        fprintf(Bench.arquivo,'%e, %e, %e, %e, %e, %e, %e, %e, %e, %e, %e, %e\n',Bench.rawdata(cnt, :));
     end
     fclose(Bench.arquivo);
 end
