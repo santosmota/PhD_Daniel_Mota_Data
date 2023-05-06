@@ -88,6 +88,37 @@ def plot_chart(figure_type='.pdf'):
                     linestyle=line_style,
                     label=label_c)
 
+    xstart, ystart, xwidth, ywidth = 0.5, 0.05, 0.45, 0.65
+    axs_00_ins = axes[0, 0].inset_axes([xstart, ystart, xwidth, ywidth])
+    x1, x2, y1, y2 = 496, 508, -1.0, -0.4
+
+    axs_00_ins.plot(df_notch['time'] * time_scaling,
+                    df_notch['vga'],
+                    color=cor_a,
+                    linewidth=line_width,
+                    linestyle=line_style,
+                    label=label_a)
+
+    axs_00_ins.plot(df_notch['time'] * time_scaling,
+                    df_notch['vgb'],
+                    color=cor_b,
+                    linewidth=line_width,
+                    linestyle=line_style,
+                    label=label_b)
+
+    axs_00_ins.plot(df_notch['time'] * time_scaling,
+                    df_notch['vgc'],
+                    color=cor_c,
+                    linewidth=line_width,
+                    linestyle=line_style,
+                    label=label_c)
+
+    axs_00_ins.set_xlim([x1, x2])
+    axs_00_ins.set_ylim([y1, y2])
+    axs_00_ins.set_xticklabels([])
+    axs_00_ins.set_yticklabels([])
+    axes[0, 0].indicate_inset_zoom(axs_00_ins, edgecolor="black")
+
     ###############################################################
     # GRID VOLTAGE - DDRRF
     ###############################################################
@@ -111,6 +142,35 @@ def plot_chart(figure_type='.pdf'):
                     linewidth=line_width,
                     linestyle=line_style,
                     label=label_c)
+
+    axs_01_ins = axes[0, 1].inset_axes([xstart, ystart, xwidth, ywidth])
+
+    axs_01_ins.plot(df_DDRRF['time'] * time_scaling,
+                    df_DDRRF['vga'],
+                    color=cor_a,
+                    linewidth=line_width,
+                    linestyle=line_style,
+                    label=label_a)
+
+    axs_01_ins.plot(df_DDRRF['time'] * time_scaling,
+                    df_DDRRF['vgb'],
+                    color=cor_b,
+                    linewidth=line_width,
+                    linestyle=line_style,
+                    label=label_b)
+
+    axs_01_ins.plot(df_DDRRF['time'] * time_scaling,
+                    df_DDRRF['vgc'],
+                    color=cor_c,
+                    linewidth=line_width,
+                    linestyle=line_style,
+                    label=label_c)
+
+    axs_01_ins.set_xlim([x1, x2])
+    axs_01_ins.set_ylim([y1, y2])
+    axs_01_ins.set_xticklabels([])
+    axs_01_ins.set_yticklabels([])
+    axes[0, 1].indicate_inset_zoom(axs_01_ins, edgecolor="black")
 
     ###############################################################
     # CONVERTER VOLTAGE - NOTCH
@@ -136,8 +196,37 @@ def plot_chart(figure_type='.pdf'):
                     linestyle=line_style,
                     label=label_c)
 
+    axs_10_ins = axes[1, 0].inset_axes([xstart, ystart, xwidth, ywidth])
+
+    axs_10_ins.plot(df_notch['time'] * time_scaling,
+                   df_notch['vca'],
+                   color=cor_a,
+                   linewidth=line_width,
+                   linestyle=line_style,
+                   label=label_a)
+
+    axs_10_ins.plot(df_notch['time'] * time_scaling,
+                   df_notch['vcb'],
+                   color=cor_b,
+                   linewidth=line_width,
+                   linestyle=line_style,
+                   label=label_b)
+
+    axs_10_ins.plot(df_notch['time'] * time_scaling,
+                   df_notch['vcc'],
+                   color=cor_c,
+                   linewidth=line_width,
+                   linestyle=line_style,
+                   label=label_c)
+
+    axs_10_ins.set_xlim([x1, x2])
+    axs_10_ins.set_ylim([y1, y2])
+    axs_10_ins.set_xticklabels([])
+    axs_10_ins.set_yticklabels([])
+    axes[1, 0].indicate_inset_zoom(axs_10_ins, edgecolor="black")
+
     ###############################################################
-    # GRID VOLTAGE - DDRRF
+    # CONVERTER VOLTAGE - DDRRF
     ###############################################################
     axes[1, 1].plot(df_DDRRF['time'] * time_scaling,
                     df_DDRRF['vca'],
@@ -159,6 +248,35 @@ def plot_chart(figure_type='.pdf'):
                     linewidth=line_width,
                     linestyle=line_style,
                     label=label_c)
+
+    axs_11_ins = axes[1, 1].inset_axes([xstart, ystart, xwidth, ywidth])
+
+    axs_11_ins.plot(df_DDRRF['time'] * time_scaling,
+                    df_DDRRF['vca'],
+                    color=cor_a,
+                    linewidth=line_width,
+                    linestyle=line_style,
+                    label=label_a)
+
+    axs_11_ins.plot(df_DDRRF['time'] * time_scaling,
+                    df_DDRRF['vcb'],
+                    color=cor_b,
+                    linewidth=line_width,
+                    linestyle=line_style,
+                    label=label_b)
+
+    axs_11_ins.plot(df_DDRRF['time'] * time_scaling,
+                    df_DDRRF['vcc'],
+                    color=cor_c,
+                    linewidth=line_width,
+                    linestyle=line_style,
+                    label=label_c)
+
+    axs_11_ins.set_xlim([x1, x2])
+    axs_11_ins.set_ylim([y1, y2])
+    axs_11_ins.set_xticklabels([])
+    axs_11_ins.set_yticklabels([])
+    axes[1, 1].indicate_inset_zoom(axs_11_ins, edgecolor="black")
 
     ###############################################################
     # GRID CURRENT - NOTCH
@@ -315,7 +433,7 @@ def plot_chart(figure_type='.pdf'):
     ##########################################################################
     # axis legends
     ##########################################################################
-    axes[0, 0].legend(loc='lower right', frameon=True, prop={'size': 10})
+    axes[2, 0].legend(loc='lower right', frameon=True, prop={'size': 10})
 
     ##########################################################################
     # align, tighten, shown and save
