@@ -124,6 +124,19 @@ def plotchart ():
     axs[1].plot(Fsws,xrs,
                 color=pe.cor_dalt['red'], linewidth=linewidth, linestyle='-', label=r'xrs')
 
+    ##########################################################################
+    # chart identification - legend - abcdefghi
+    ##########################################################################
+    # https://matplotlib.org/stable/gallery/color/named_colors.html
+    # colors lightgray gray aliceblue whitesmoke
+    corlegenda = 'whitesmoke'
+    #
+    axs[0].annotate(r'a', xy=(0.9, 0.75), xycoords='axes fraction',
+                     bbox=dict(boxstyle='circle', fc=corlegenda))
+
+    axs[1].annotate(r'b', xy=(0.9, 0.75), xycoords='axes fraction',
+                     bbox=dict(boxstyle='circle', fc=corlegenda))
+
     ##################################################
     # Legends and titles
     axs[1].set_xticks(np.arange(2500, 5500, 250))

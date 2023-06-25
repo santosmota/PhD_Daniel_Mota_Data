@@ -798,8 +798,6 @@ def plot_charts_time_fft(csv_rollingsamples=0,
 
     plt.show()
 
-
-
 def main():
     print("#####################")
     print("Function name: ", main.__name__)

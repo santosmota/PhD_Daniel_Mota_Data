@@ -266,16 +266,17 @@ def plot_chart(figure_type='.pdf'):
     axes_fft[0].set_yticks(np.arange(0, 2.0, 0.5))
     axes_fft[0].set_ylim([0, 1.05])
 
-    axes_fft[1].set_yticks(np.arange(-180, 360, 45))
+    axes_fft[1].set_yticks(np.arange(-180, 180, 90))
     axes_fft[1].set_ylim([-180, 95])
+    axes_fft[1].set_yticklabels([r'$-\pi$', r'$-\pi/2$', r'$0$', r'$\pi/2$'])
 
     ##########################################################################
     # axis names
     ##########################################################################
-    axes_fft[1].set_xlabel(r'Harmonic of the grid frequency (dimensionless)')
+    axes_fft[1].set_xlabel(r'Harmonic (dimensionless)')
 
     axes_fft[0].set_ylabel(r'Gain (\si{pu}/\si{pu})')
-    axes_fft[1].set_ylabel(r'Phase ($^\circ$)')
+    axes_fft[1].set_ylabel(r'Phase (rad)') #$^\circ$)')
 
     ##########################################################################
     # chart identification - legend - abcdefghi
