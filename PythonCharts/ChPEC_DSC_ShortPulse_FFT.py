@@ -149,7 +149,7 @@ def plot_chart(figure_type='.pdf'):
     axes[1].set_xlabel(r'Time (periods $T$ of the grid)')
 
     axes[0].set_ylabel(r'Voltage $abc$ frame (\si{pu})')
-    axes[1].set_ylabel(r'Voltage $d$ axis (\si{pu})')
+    axes[1].set_ylabel(r'Voltage $d+$ axis (\si{pu})')
 
     ##########################################################################
     # chart identification - legend - abcdefghi
@@ -158,11 +158,11 @@ def plot_chart(figure_type='.pdf'):
     # colors lightgray gray aliceblue whitesmoke
     corlegenda = 'whitesmoke'
     #
-    # axes[0].annotate(r'a', xy=(0.7, 0.82), xycoords='axes fraction',
-    #                  bbox=dict(boxstyle='circle', fc=corlegenda))
+    axes[0].annotate(r'a', xy=(0.12, 0.75), xycoords='axes fraction',
+                     bbox=dict(boxstyle='circle', fc=corlegenda))
 
-    # axes[1].annotate(r'b', xy=(0.7, 0.82), xycoords='axes fraction',
-    #                  bbox=dict(boxstyle='circle', fc=corlegenda))
+    axes[1].annotate(r'b', xy=(0.12, 0.75), xycoords='axes fraction',
+                     bbox=dict(boxstyle='circle', fc=corlegenda))
 
     ##########################################################################
     # axis legends
@@ -285,11 +285,11 @@ def plot_chart(figure_type='.pdf'):
     # colors lightgray gray aliceblue whitesmoke
     corlegenda = 'whitesmoke'
     #
-    # axes_fft[0].annotate(r'a', xy=(0.7, 0.82), xycoords='axes fraction',
-    #                 bbox=dict(boxstyle='circle', fc=corlegenda))
+    # axes_fft[0].annotate(r'a', xy=(0.25, 0.75), xycoords='axes fraction',
+    #                      bbox=dict(boxstyle='circle', fc=corlegenda))
 
-    # axes_fft[1].annotate(r'b', xy=(0.7, 0.82), xycoords='axes fraction',
-    #                 bbox=dict(boxstyle='circle', fc=corlegenda))
+    # axes_fft[1].annotate(r'b', xy=(0.25, 0.75), xycoords='axes fraction',
+    #                      bbox=dict(boxstyle='circle', fc=corlegenda))
 
     ##########################################################################
     # axis legends

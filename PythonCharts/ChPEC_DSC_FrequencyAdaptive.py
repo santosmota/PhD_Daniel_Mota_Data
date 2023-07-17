@@ -167,11 +167,17 @@ def plot_chart(figure_type='.pdf'):
     # colors lightgray gray aliceblue whitesmoke
     corlegenda = 'whitesmoke'
     #
-    # axes[0].annotate(r'a', xy=(0.7, 0.82), xycoords='axes fraction',
-    #                  bbox=dict(boxstyle='circle', fc=corlegenda))
+    axes[0].annotate(r'a', xy=(0.05, 0.8), xycoords='axes fraction',
+                     bbox=dict(boxstyle='circle', fc=corlegenda))
 
-    # axes[1].annotate(r'b', xy=(0.7, 0.82), xycoords='axes fraction',
-    #                  bbox=dict(boxstyle='circle', fc=corlegenda))
+    axes[1].annotate(r'b', xy=(0.05, 0.8), xycoords='axes fraction',
+                     bbox=dict(boxstyle='circle', fc=corlegenda))
+
+    axes[2].annotate(r'c', xy=(0.05, 0.8), xycoords='axes fraction',
+                     bbox=dict(boxstyle='circle', fc=corlegenda))
+
+    axes[3].annotate(r'd', xy=(0.05, 0.8), xycoords='axes fraction',
+                     bbox=dict(boxstyle='circle', fc=corlegenda))
 
     ##########################################################################
     # axis legends
