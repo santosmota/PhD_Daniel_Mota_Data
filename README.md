@@ -20,10 +20,10 @@ A rough structure of the files is given below:
 
     - Intro_FreqRespPhases.py: figure in Chapter 2 - Background
     - ChHESS_*: figures in Chapter 3 - Control Structures for ESSs
-    - ChPEC_*: figures in Chapter 4 - Current Control in Power Converters
+    - ChPEC_*: figures in Chapter 4 - Current Control in Power Converters, also in Appendix E - Frequency Adaptive DSC
     - ChFreq_*: figures in Chapter 5 - Sharing of Primary Reserves
     - ChPHIL_*: figures in Chapter 6 - Scaling Method for PHIL Test Beds
-
+    
 Some files have not made the cut and stayed out of the thesis. 
 
 ## Folder: Modelos
@@ -31,6 +31,12 @@ The subfolders located in here contain model and raw-data used for generating fi
 
 A rough structure of the subfolders is given below:
 
-    - to be done
+    - Modelos/Intro/ : figure in Chapter 2 - Background
+    - Modelos/ChHESS/ : figures in Chapter 3 - Control Structures for ESSs
+    - Modelos/ChPEC/ : figures in Chapter 4 - Current Control in Power Converters, also in Appendix E - Frequency Adaptive DSC
+    - Modelos/PrimReserveSharing* : figures in Chapter 5 - Sharing of Primary Reserves
+    - Modelos/ChPHIL/ : figures in Chapter 6 - Scaling Method for PHIL Test Beds
+
+Some folders have not made the cut and stayed out of the thesis. 
 
 
