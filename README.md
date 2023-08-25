@@ -11,6 +11,7 @@ If you use data from this repository, please cite.
   - orcid: https://orcid.org/0000-0002-3602-1036
 - title: Data Repository for the Thesis Control and Stability of Isolated Grids with Synchronous and Non-Synchronous Generation
 - version: 1.0.0
+- DOI: 10.5281/zenodo.8282628
 - date-released: 2023-08
 
 ## Folder: PythonCharts
