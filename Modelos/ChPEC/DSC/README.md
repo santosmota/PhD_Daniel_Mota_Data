@@ -1,6 +1,6 @@
 # Frequency Adaptive Delayed Signal Cancellation Applied Directly to the Rotating Reference Frames of Dual-Sequence Current Controllers of Power Converters
 
-This repository contains the simulation and data files used in the full paper manuscript "Dual-Sequence Current Controller with Delayed Signal Cancellation in the Rotating Reference Frame" submitted in October 2021 to the "Twenty-second IEEE Workshop on Control and Modeling for Power Electronics (COMPEL 2021)".
+This is a copy of the repository that contains the simulation and data files used in the full paper manuscript "Dual-Sequence Current Controller with Delayed Signal Cancellation in the Rotating Reference Frame" submitted in October 2021 to the "Twenty-second IEEE Workshop on Control and Modeling for Power Electronics (COMPEL 2021)".
 
 ## Scripts, models, and figures: 
 The files are organized as follows:
