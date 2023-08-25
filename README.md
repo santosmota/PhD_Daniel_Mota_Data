@@ -8,7 +8,7 @@ If you use data from this repository, please cite.
 - author:
   - family-names: Mota
   - given-names: Daniel dos Santos
-  - orcid: [https://orcid.org/1234-5678-9101-1121](https://orcid.org/0000-0002-3602-1036)
+  - orcid: https://orcid.org/0000-0002-3602-1036
 - title: Data Repository for the Thesis Control and Stability of Isolated Grids with Synchronous and Non-Synchronous Generation
 - version: 1.0.0
 - date-released: 2023-08
